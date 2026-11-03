@@ -1,0 +1,14 @@
+import {build} from 'esbuild';
+import {mkdir,readFile,writeFile,copyFile} from 'node:fs/promises';
+await mkdir('dist',{recursive:true});
+await mkdir('docs',{recursive:true});
+const result=await build({entryPoints:['app.js'],bundle:true,minify:true,format:'iife',target:['safari16','chrome110'],legalComments:'eof',write:false});
+const script=result.outputFiles[0].text.replaceAll('</script','<\\/script');
+const css=await readFile('style.css','utf8');
+let html=await readFile('index.html','utf8');
+html=html.replace('<link rel="stylesheet" href="style.css">',() => `<style>${css}</style>`).replace('<script type="module" src="app.js"></script>',() => `<script>${script}</script>`);
+await writeFile('dist/index.html',html);
+await copyFile('dist/index.html','dist/Cardenas-and-Corp.html');
+await copyFile('dist/index.html','docs/index.html');
+await writeFile('docs/.nojekyll','');
+console.log('Compilación lista: dist/index.html y dist/Cardenas-and-Corp.html (autocontenidos; sin CDN) y docs/index.html para GitHub Pages.');

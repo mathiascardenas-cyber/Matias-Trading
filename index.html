@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#162a24"><title>Cárdenas and Corp. | Trading Lab</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<aside class="sidebar">
+ <a class="wordmark" href="#" aria-label="Inicio"><span class="brand-icon">C<span>▧</span></span><span>CÁRDENAS<span>AND CORP.</span></span></a>
+ <div class="workspace"><span class="workspace-icon">C</span><div>Trading Lab<small>Espacio de trabajo</small></div><span class="workspace-dot"></span></div>
+ <div class="nav-label">CENTRO DE OPERACIONES</div>
+ <nav aria-label="Principal">
+ <button data-page="office" class="active"><span>▧</span> Oficina 3D <em>35</em></button>
+ <button data-page="research"><span>⌕</span> Investigación <em>7</em></button>
+ <button data-page="testing"><span>◫</span> Cuentas demo <em>6</em></button>
+ <button data-page="risk"><span>◇</span> Control de riesgo <em>12</em></button>
+ <button data-page="development"><span>⌘</span> Desarrollo <em>3</em></button>
+ <button data-page="news"><span>◷</span> Noticias <em>3</em></button>
+ <button data-page="operators"><span>↗</span> Operadores <em>4</em></button>
+ </nav>
+ <div class="sidebar-bottom"><div class="connection"><span class="connection-icon">⇄</span><div>Deriv · MetaTrader 5<small>Sin conectar</small></div><span class="hollow-dot"></span></div><button id="integration-button">Ver integración <span>↗</span></button><div class="profile"><span>MC</span><div>Dirección del laboratorio<small>Cárdenas and Corp.</small></div></div></div>
+</aside>
+<div class="app-shell">
+ <header class="topbar"><div><span class="breadcrumb">Workspace</span><span class="slash">/</span><span id="breadcrumb-current">Oficina virtual</span></div><div class="topbar-right"><span class="sandbox-pill"><i></i> SIMULADOR LOCAL</span><span class="date-label" id="local-date"></span><span class="user-avatar">C</span></div></header>
+ <main>
+ <section class="heading"><div><div class="eyebrow"><span></span> CÁRDENAS AND CORP. / INVESTMENT LAB</div><h1 id="page-title">Grandes ideas. Un solo equipo.</h1><p id="page-subtitle">Tu laboratorio de trading, ahora con espacio propio.</p></div><div class="heading-actions"><button class="button secondary" id="report-button"><span>↓</span> Exportar sesión</button><button class="button primary" id="run-button"><span>▶</span> Iniciar laboratorio</button></div></section>
+ <section class="metrics" aria-label="Resumen del laboratorio">
+  <article class="metric"><div class="metric-title">EQUIPO VIRTUAL <span>◉</span></div><strong>35 <span>agentes</span></strong><div class="metric-foot"><i></i> 6 departamentos <span>Roles de demostración</span></div></article>
+  <article class="metric"><div class="metric-title">CAPITAL DEMO LOCAL <span>▱</span></div><strong id="total-equity">$600,000<span>.00</span></strong><div class="metric-foot">6 cuentas × $100.000 <span>USD virtuales</span></div></article>
+  <article class="metric"><div class="metric-title">UNIVERSO DE INVERSIÓN <span>↗</span></div><div class="market-pills"><span><i class="gold"></i> ORO</span><span><i class="blue"></i> NASDAQ</span></div><div class="metric-foot">2 mercados exclusivos <span>Símbolos por definir en MT5</span></div></article>
+  <article class="metric"><div class="metric-title">ESTADO DEL LABORATORIO <span>◇</span></div><strong class="state-value" id="lab-state">En espera</strong><div class="metric-foot" id="state-detail">Datos sintéticos <span>Sin operaciones reales</span></div></article>
+ </section>
+ <section id="office-page">
+ <div class="office-layout"><article class="office-card"><div class="card-header"><div><span class="section-number">01</span><h2>La oficina</h2><span class="small-pill">3D EN TIEMPO REAL</span></div><button class="icon-button" id="reset-camera" title="Restablecer vista" aria-label="Restablecer vista">⟲</button></div>
+ <div class="viewport" id="viewport"><div class="scene-caption"><span class="live-dot"></span> CAMPUS PRINCIPAL <span class="scene-caption-sub">/ NIVEL 01</span></div><div id="scene-loading">Preparando tu oficina 3D…</div><div id="room-labels"></div><div id="scene-error" hidden>Tu navegador no pudo iniciar WebGL. Puedes utilizar los equipos y las cuentas desde el menú lateral.</div><div class="scene-mark">C<span>&</span>C<span class="scene-mark-sub">INVESTMENT LAB</span></div><div class="view-controls"><button id="zoom-out" aria-label="Alejar">−</button><span>VISTA ISOMÉTRICA</span><button id="zoom-in" aria-label="Acercar">+</button></div></div>
+ <div class="office-footer"><span><span class="pointer-icon">↖</span> Selecciona una sala o un agente</span><span>Arrastra para girar <b>·</b> Rueda para acercar</span><button id="animation-button" aria-pressed="true">Ⅱ Animación</button></div>
+ </article>
+ <aside class="team-card"><div class="card-header"><div><span class="section-number">02</span><h2>Los equipos</h2></div><span class="muted">6</span></div><div id="team-list"></div><div class="team-card-footer"><span class="tiny-blocks">▥</span><div>Una misión compartida.<small>Investigar. Validar. Proteger.</small></div></div></aside></div>
+ <div class="lower-grid"><article class="pipeline-card"><div class="card-header"><div><span class="section-number">03</span><h2>De la idea a la ejecución</h2></div><span class="muted">Validación por etapas</span></div><div id="pipeline"></div><div class="pipeline-note"><span>◇</span> Los resultados sintéticos no habilitan cuentas reales. La aprobación final queda fuera del simulador.</div></article><article class="activity-card"><div class="card-header"><div><span class="section-number">04</span><h2>Actividad</h2></div><span class="activity-badge" id="tick-label">CICLO 0</span></div><div id="activity-log" aria-live="polite"></div></article></div>
+ </section>
+ <section id="detail-page" hidden><div class="detail-top"><div><small class="eyebrow" id="detail-eyebrow"></small><h2 id="detail-title"></h2><p id="detail-description"></p></div><span id="detail-count" class="detail-count"></span></div><div id="detail-content"></div></section>
+ <footer class="main-footer"><span><i></i> Laboratorio local · Sin conexión a IA, noticias o broker</span><span>Cárdenas and Corp. <b>© 2026</b></span></footer>
+ </main>
+</div>
+<dialog id="team-dialog"><button class="dialog-close" id="close-dialog" aria-label="Cerrar">×</button><div id="dialog-body"></div></dialog>
+<div class="toast" id="toast" role="status" hidden></div>
+<script type="module" src="app.js"></script>
+</body></html>

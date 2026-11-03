@@ -1,0 +1,19 @@
+{
+  "name": "cardenas-and-corp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "start": "npm run build && python3 -m http.server 3000 --bind 0.0.0.0 --directory dist",
+    "test": "node lab-engine.test.js",
+    "test:browser": "node browser-smoke.test.js"
+  },
+  "dependencies": {
+    "three": "0.180.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12",
+    "@playwright/test": "1.56.1"
+  }
+}
